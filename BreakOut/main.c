@@ -178,7 +178,7 @@ void update()
 
     for (int i = 0; i < targets_size; i++)
     {
-        if (i != ball->id)
+        if (i != ball->id && !targets[i].redundant)
         {
             bool x = rect_vs_rect(targets[i].rect, make_rect(ball_x + ball_vx * delta_time, ball_y, TILE_HEIGHT, TILE_HEIGHT));
             bool y = rect_vs_rect(targets[i].rect, make_rect(ball_x, ball_y + ball_vy * delta_time, TILE_HEIGHT, TILE_HEIGHT));
