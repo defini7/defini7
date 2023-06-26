@@ -1,3 +1,5 @@
+// gcc main.c -o bf -Wpedantic -Wall -std=c11 -Ofast
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -83,14 +85,33 @@ void parse(const char* source)
     }
 }
 
+void run_file(const char* filename)
+{
+    parse(read_file(filename));
+}
+
+void run_line(const char* input)
+{
+    parse(input);
+}
+
+void run_shell()
+{
+    while (1)
+    {
+        printf(">>> ");
+        char input[1024];
+        scanf("%s", input);
+        run_line(input);
+    }
+}
+
 int main(int argc, const char** argv)
 {
-    if (argc <= 1)
-    {
-        fprintf(stderr, "Please provide file name!");
-        return 1;
-    }
+    if (argc > 1)
+        run_file(argv[1]);
+    else
+        run_shell();
 
-    parse(read_file(argv[1]));
     return 0;
 }
