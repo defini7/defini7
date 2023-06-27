@@ -1,7 +1,7 @@
 lev :: [Char] -> [Char] -> Int
 lev a b
-    | length b == 0    = length a
-    | length a == 0    = length b
+    | null b == 0    = length a
+    | null a == 0    = length b
     | head a == head b = lev ta tb
     | otherwise        = 1 + foldr1 min [lev ta b, lev a tb, lev ta tb]
     where
