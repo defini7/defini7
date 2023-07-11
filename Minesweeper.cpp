@@ -1,7 +1,6 @@
 #include <array>
 
 #include <SFML/Graphics.hpp>
-#include <SFML/System/String.hpp>
 
 #pragma comment(lib, "sfml-graphics-d.lib")
 #pragma comment(lib, "sfml-window-d.lib")
